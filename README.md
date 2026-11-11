@@ -25,7 +25,6 @@ DATOS DE PRUEBA INICIALES:
   Alumna: YIYE AARON CURI ALCANTARA
   DNI: 70856890
   Curso: PROGRAMACIÓN Y DESARROLLO WEB
-  Notas: 17, 18 y 16
 
 NOTA:
 Los datos se guardan en listas y diccionarios de Python. No se utiliza base de datos.
