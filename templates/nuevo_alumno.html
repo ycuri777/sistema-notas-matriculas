@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Registrar alumno{% endblock %}
+{% block content %}
+<h2>Registro de nuevo alumno</h2>
+<p class="subtitulo">Complete los datos personales. Todos los campos son obligatorios.</p>
+{% if error %}<div class="alerta error">{{ error }}</div>{% endif %}
+<form method="POST" action="{{ url_for('nuevo_alumno') }}" class="formulario">
+    <label>Nombres<input type="text" name="nombres" value="{{ valores.get('nombres','') }}" required></label>
+    <label>Apellidos<input type="text" name="apellidos" value="{{ valores.get('apellidos','') }}" required></label>
+    <label>DNI (8 dígitos)<input type="text" name="dni" maxlength="8" pattern="[0-9]{8}" value="{{ valores.get('dni','') }}" required></label>
+    <label>Correo electrónico<input type="email" name="correo" value="{{ valores.get('correo','') }}" required></label>
+    <button class="boton" type="submit">Guardar alumno</button>
+</form>
+{% endblock %}

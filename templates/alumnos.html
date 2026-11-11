@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Alumnos registrados{% endblock %}
+{% block content %}
+<div class="titulo-fila"><h2>Listado de alumnos</h2><a class="boton" href="{{ url_for('nuevo_alumno') }}">+ Nuevo alumno</a></div>
+{% if alumnos %}
+<div class="tabla-contenedor"><table><thead><tr><th>ID</th><th>Nombres</th><th>Apellidos</th><th>DNI</th><th>Correo</th></tr></thead>
+<tbody>{% for alumno in alumnos %}<tr><td>{{ alumno.id }}</td><td>{{ alumno.nombres }}</td><td>{{ alumno.apellidos }}</td><td>{{ alumno.dni }}</td><td>{{ alumno.correo }}</td></tr>{% endfor %}</tbody></table></div>
+{% else %}<p class="vacio">Todavía no hay alumnos registrados.</p>{% endif %}
+{% endblock %}

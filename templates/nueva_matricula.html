@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Registrar matrícula{% endblock %}
+{% block content %}
+<h2>Registrar matrícula y notas</h2>
+<p class="subtitulo">Seleccione un alumno, indique el curso y registre tres notas entre 0 y 20.</p>
+{% if error %}<div class="alerta error">{{ error }}</div>{% endif %}
+{% if alumnos %}
+<form method="POST" action="{{ url_for('nueva_matricula') }}" class="formulario">
+    <label>Alumno
+        <select name="alumno_id" required><option value="">-- Seleccione --</option>
+        {% for a in alumnos %}<option value="{{ a.id }}" {% if valores.get('alumno_id','')|string == a.id|string %}selected{% endif %}>{{ a.apellidos }}, {{ a.nombres }} – DNI {{ a.dni }}</option>{% endfor %}
+        </select>
+    </label>
+    <label>Curso / aula virtual<input type="text" name="curso" placeholder="Ej. Moodle: Fundamentos de Python" value="{{ valores.get('curso','') }}" required></label>
+    <div class="grupo-notas">
+        <label>Nota 1<input type="number" name="nota1" min="0" max="20" step="0.01" value="{{ valores.get('nota1','') }}" required></label>
+        <label>Nota 2<input type="number" name="nota2" min="0" max="20" step="0.01" value="{{ valores.get('nota2','') }}" required></label>
+        <label>Nota 3<input type="number" name="nota3" min="0" max="20" step="0.01" value="{{ valores.get('nota3','') }}" required></label>
+    </div>
+    <button class="boton" type="submit">Guardar matrícula</button>
+</form>
+{% else %}<div class="alerta error">Primero debe registrar al menos un alumno. <a href="{{ url_for('nuevo_alumno') }}">Registrar alumno</a></div>{% endif %}
+{% endblock %}

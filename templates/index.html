@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Inicio | Sistema Académico{% endblock %}
+{% block content %}
+<section class="bienvenida">
+    <h2>Panel principal</h2>
+    <p>Bienvenido al sistema web de registro de notas y matrículas.</p>
+</section>
+<div class="tarjetas">
+    <article class="tarjeta"><span class="numero">{{ total_alumnos }}</span><h3>Alumnos registrados</h3><a href="{{ url_for('listar_alumnos') }}">Ver alumnos</a></article>
+    <article class="tarjeta"><span class="numero">{{ total_matriculas }}</span><h3>Matrículas registradas</h3><a href="{{ url_for('listar_matriculas') }}">Ver matrículas</a></article>
+    <article class="tarjeta"><span class="numero">{{ promedio_general }}</span><h3>Promedio general</h3><span>Escala vigesimal</span></article>
+</div>
+<div class="panel">
+    <h3>Funciones del sistema</h3>
+    <ul>
+        <li>Registrar alumnos con nombres, apellidos, DNI y correo.</li>
+        <li>Matricular alumnos en cursos y registrar tres calificaciones.</li>
+        <li>Consultar información mediante páginas dinámicas Jinja2.</li>
+        <li>Obtener el consolidado en formato JSON desde la API REST.</li>
+    </ul>
+    <p class="nota">Importante: los datos se almacenan únicamente en memoria. Al detener el servidor, se reinician.</p>
+</div>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Matrículas y notas{% endblock %}
+{% block content %}
+<div class="titulo-fila"><h2>Matrículas y calificaciones</h2><a class="boton" href="{{ url_for('nueva_matricula') }}">+ Nueva matrícula</a></div>
+{% if matriculas %}
+<div class="tabla-contenedor"><table><thead><tr><th>ID</th><th>Alumno</th><th>DNI</th><th>Curso</th><th>Nota 1</th><th>Nota 2</th><th>Nota 3</th><th>Promedio</th><th>Estado</th></tr></thead>
+<tbody>{% for m in matriculas %}<tr><td>{{ m.id }}</td><td>{{ m.nombre_completo }}</td><td>{{ m.dni }}</td><td>{{ m.curso }}</td><td>{{ m.nota1 }}</td><td>{{ m.nota2 }}</td><td>{{ m.nota3 }}</td><td><strong>{{ m.promedio }}</strong></td><td><span class="{{ 'aprobado' if m.promedio >= 11 else 'desaprobado' }}">{{ "Aprobado" if m.promedio >= 11 else "Desaprobado" }}</span></td></tr>{% endfor %}</tbody></table></div>
+{% else %}<p class="vacio">No existen matrículas registradas.</p>{% endif %}
+{% endblock %}
