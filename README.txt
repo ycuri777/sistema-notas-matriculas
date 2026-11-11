@@ -22,8 +22,8 @@ RUTAS:
   /cualquier-ruta    Página personalizada 404
 
 DATOS DE PRUEBA INICIALES:
-  Alumna: Ana María Torres Rojas
-  DNI: 74125896
+  Alumna: YIYE AARON CURI ALCANTARA
+  DNI: 70856890
   Curso: Python con Flask
   Notas: 17, 18 y 16
 
